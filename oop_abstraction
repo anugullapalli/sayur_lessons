@@ -1,0 +1,27 @@
+class Vehicle():
+    def start_engine(self):
+        pass
+    def stop_engine(self):
+        pass
+
+class car(Vehicle):
+    def start_engine(self):
+        return "Car Engine started"
+    def stop_engine(self):
+        return "Car Engine stopped"
+    
+class motorcycle(Vehicle):
+    def start_engine(self):
+        return "Motorcycle Engine started"
+    def stop_engine(self):
+        return "Motorcycle Engine stopped"
+    
+def operate_vehicle(vehicle):
+    print(vehicle.start_engine())
+    print(vehicle.stop_engine())
+
+car1=car()
+mc1 = motorcycle()
+
+operate_vehicle(car1)
+operate_vehicle(mc1)

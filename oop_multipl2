@@ -1,0 +1,17 @@
+class Parent1:
+    def greet(self):
+            return "Hello from parent1"
+class Parent2(Parent1):
+    def greet(self):
+            return f"{super().greet()} and Hello from Parent2"  
+
+
+class child(Parent2):
+      def greet(self):
+            return f"{super().greet()} and Hello from Child"  
+    
+p1=Parent2()
+print(p1.greet())
+child1=child()
+print(child1.greet())
+      

@@ -7,13 +7,25 @@ def reverse_words(Sentence):
 
     #jon the new list
     res_str = " ".join(new_word_list)
-    return res_str
+    print(res_str)
 
-str1 = "My name is Anu"
-print(reverse_words(str1))
+my_str="Hello SAYur stuDENTS!"
+#reverse_words("Who are you")
 
-word = "Anu"
-new_word = [word[::-1] for letter in word]
+#for word in my_str.split():
+#    word = word.lower()
 
-b=[7,4,5,6]
-print ("the revese list is ", b[::-1])
+
+words=[word.lower() for word in my_str.split()]
+print(words)
+
+thislist = ["orange", "mango", "kiwi", "pineapple", "banana"]
+thislist.sort()
+print(thislist)
+
+
+list1 = ["a", "b", "c"]
+list2 = [1, 2, 3]
+
+list3 = list1 + list2
+print(list3)

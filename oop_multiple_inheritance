@@ -1,0 +1,16 @@
+class Flyable:
+    def fly(self):
+            return "Flying"
+
+class Swimmable:
+    def swim(self):
+            return "Swimming"
+    
+
+class FlyingFish(Flyable, Swimmable):
+      pass
+
+myfish = FlyingFish()
+
+print(myfish.fly())
+print(myfish.swim())

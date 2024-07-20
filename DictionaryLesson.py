@@ -1,21 +1,24 @@
 
-mycars = {
-    "car1": {
-         "Brand": "Toyota",
-         "Model": "Corolla",
-         "Year": 1995
+myitems= {
+    "vadai": {
+         "price": 10,
+         "stock": 50,
+         "sales": 0,
+         "profit": 4
            },
-    "car2":{
-         "Brand": "Honda",
-         "Model": "Civic",
-         "Year": 2005
-          } ,  
-    "car3":{
-         "Brand": "Honda",
-         "Model": "Odyssey",
-         "Year": 2020
-          }  
+     "tea": {
+         "price": 12,
+         "stock": 45,
+         "sales": 0,
+         "profit": 5
+           },
+     "coffee": {
+         "price": 15,
+         "stock": 40,
+         "sales": 0,
+         "profit": 6
+           }
 }
 
-print(mycars.keys())
+print(myitems.keys())
 

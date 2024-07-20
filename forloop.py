@@ -1,12 +1,14 @@
-userstring=input("Enter input string: ")
-print (userstring)
+def calc_min_coins(total):
+    total_coins = 0   
+    for coin_value in [5,3,1]:
+        no_of_coins = int(total / coin_value)
+        total= total - no_of_coins * coin_value
+        total_coins += no_of_coins
+    print(total_coins)
 
-
-print (userstring[0])
-print (len(userstring))
-ind = 0
-for i in range(0,len(userstring) - 1):
-        if userstring[i] =='a':
-                ind = i
-                print (i + 1)
-print (ind)
+while True:
+    line = int(input("Enter input:\n"))
+    if line:
+        calc_min_coins(line)
+    else:
+        break

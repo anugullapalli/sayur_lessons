@@ -9,9 +9,9 @@
 # end the while loop
 
 number = 10
-while (number != 0): 
-    print ("number is " , number)                                      #while loop block start
+while (number != 0):                          #while loop block start
     number=int(input("Enter the number (to end enter 0): "))
+    print ("number is " , number)             
     if number == -1: continue                         #skip rest of the block
     if number == -2: break                            #skips entire loop
     if (number > 0):
