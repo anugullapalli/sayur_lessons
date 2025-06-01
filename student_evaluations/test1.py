@@ -1,22 +1,29 @@
-# Write a program that prints numbers from 1 to 100.
-# if that number is divisible by 2 , print "Sayur Rocks!"
-# If that number is divisible by 4, print "Sayur Really Rocks!!"
 
-#logic
-# i = 1 limit 100
-# for loop to loop through numbers
-# if i is divisible by 2 , print sayur rocks
-# else if i is divisible by 4, print sayur really rocks
-# print i
-#
+user_email=input("Enter the email:")
+char = "@"
+user_pwd = input("Enter the password:")
+valid_flag = True
 
-for i in range (1,11):
-    
+if char not in user_email:
+    valid_flag = False
+    print("Email not valid")
 
-    if (i % 4 == 0):
-        print ("Sayur Really Rocks!")
-        print("Sayur Rocks!")
-    elif (i % 2 ==0):
-        print("Sayur Rocks!!")
-    else:
-       print(i)
+parts1= user_email.split("@")
+
+username=parts1[0]  
+parts2=parts1[1].split(".")
+company=parts2[0]
+end=parts2[1] 
+
+if end not in ("org","com","tech","edu"):
+    print("Email not valid")
+
+password_begin = username[0]+username[2] + username[-3:] + company[:3] 
+
+user_last3 = user_pwd[-3:]
+
+if not user_pwd.startswith(password_begin):
+    print("password is not valid")
+
+if not user_last3.isdigit():
+    print("password does not end with 3 digits")

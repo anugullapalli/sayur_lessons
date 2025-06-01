@@ -1,14 +1,14 @@
-def calc_min_coins(total):
-    total_coins = 0   
-    for coin_value in [5,3,1]:
-        no_of_coins = int(total / coin_value)
-        total= total - no_of_coins * coin_value
-        total_coins += no_of_coins
-    print(total_coins)
+def find_largest(lst):
+    if not lst:
+        return None  # Return None if the list is empty
+    max_num = lst[0]
+    index = 1
+    while index < len(lst):
+        if lst[index] > max_num:
+            max_num = lst[index]
+        index += 1
+    return max_num
 
-while True:
-    line = int(input("Enter input:\n"))
-    if line:
-        calc_min_coins(line)
-    else:
-        break
+# Example usage
+print(find_largest([3, 7, 2, 8, 4]))  # Output: 8
+print(find_largest([-5, -2, -1, -3]))  # Output: -1

@@ -1,0 +1,7 @@
+# Creating a dictionary with student information
+student = {
+    "name": "Alice",
+    "age": 20,
+    "major": "Computer Science"
+}
+print(student)
