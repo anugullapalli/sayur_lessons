@@ -1,36 +1,9 @@
-#Fill in the missing code whereever it says #FillinMissingCode
-#Fix the syntax errors as needed.
+import re
 
-#This is code has functions for basic arithmetic operations. Add, subtract, multiply and divide
-#The main function adds all student marks and finds the average
+def contains_at_least_one_letter(name):
+    pattern = r'[a-zA-Z]'
+    return bool(re.search(pattern, name))
 
-def addTwoNumbers(n1, n2):
-    ans = n1 + n2
-    return ans
-def subtractAfromB(a, b):
-    sub=b-a
-    return sub
-
-def multiplyTwoNumbers(n1,n2):
-    mul=n1 * n2
-    return mul
-def divideAFromB(a, b):
-    ans = b / a
-    return ans
-#main code
-
-#Get 5 marks from student and find the total
-total = 0
-mark_list=[]
-for i in range(0,5):
-    mark = int(input(f"Enter mark {i+1} "))
-    mark_list.append(mark)
-
-total = addTwoNumbers(mark_list[0],mark_list[1])
-total = addTwoNumbers(total,mark_list[2])
-total = addTwoNumbers(total,mark_list[3])
-total = addTwoNumbers(total,mark_list[4])
-
-avg = divideAFromB(5,total)
-
-print("The avg mark is ", avg)
+# Test the function
+print(contains_at_least_one_letter("John Doe"))  # True
+print(contains_at_least_one_letter("123a4"))       # False
