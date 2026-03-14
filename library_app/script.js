@@ -12,6 +12,11 @@ const books = [
     { id: 10, title: "The Brothers Karamazov", author: "Fyodor Dostoevsky", year: 1879 },
     { id: 11, title: "Anna Karenina", author: "Leo Tolstoy", year: 1877 },
     { id: 12, title: "War and Peace", author: "Leo Tolstoy", year: 1869 },
+    { id: 13, title: "The Catcher in the Rye", author: "J.D. Salinger", year: 1951 },
+    { id: 14, title: "Lord of the Flies", author: "William Golding", year: 1954 },
+    { id: 15, title: "Brave New World", author: "Aldous Huxley", year: 1932 },
+    { id: 16, title: "The Hobbit", author: "J.R.R. Tolkien", year: 1937 },
+    { id: 17, title: "Fahrenheit 451", author: "Ray Bradbury", year: 1953 },
 ];
 
 // Application State
@@ -43,6 +48,15 @@ function setupEventListeners() {
     searchInput.addEventListener('input', handleSearch);
     clearSearchBtn.addEventListener('click', handleClearSearch);
     checkoutBtn.addEventListener('click', handleCheckout);
+    
+    // Modal event listeners
+    document.getElementById('closeModal').addEventListener('click', closeBookModal);
+    window.addEventListener('click', (e) => {
+        const modal = document.getElementById('bookModal');
+        if (e.target === modal) {
+            closeBookModal();
+        }
+    });
 }
 
 // Handle Search
@@ -81,9 +95,12 @@ function renderBooks(booksToRender) {
             <div class="book-title">${book.title}</div>
             <div class="book-author">by ${book.author}</div>
             <div class="book-year">${book.year}</div>
-            <button class="add-btn" data-id="${book.id}" ${isInCart ? 'disabled' : ''}>
-                ${isInCart ? 'Added to Cart' : 'Add to Cart'}
-            </button>
+            <div class="book-buttons">
+                <button class="info-btn" data-id="${book.id}">ℹ️ Info</button>
+                <button class="add-btn" data-id="${book.id}" ${isInCart ? 'disabled' : ''}>
+                    ${isInCart ? 'Added to Cart' : 'Add to Cart'}
+                </button>
+            </div>
         `;
         
         booksGrid.appendChild(bookCard);
@@ -92,6 +109,9 @@ function renderBooks(booksToRender) {
     // Add event listeners to buttons
     document.querySelectorAll('.add-btn').forEach(btn => {
         btn.addEventListener('click', handleAddToCart);
+    });
+    document.querySelectorAll('.info-btn').forEach(btn => {
+        btn.addEventListener('click', handleShowBookInfo);
     });
 }
 
@@ -142,6 +162,31 @@ function handleAddToCart(e) {
     renderBooks(appState.filteredBooks);
     renderCart();
     showAlert(`"${book.title}" added to cart!`, 'success');
+}
+
+// Handle Show Book Info
+function handleShowBookInfo(e) {
+    const bookId = parseInt(e.target.getAttribute('data-id'));
+    const book = books.find(b => b.id === bookId);
+    
+    if (!book) return;
+    
+    showBookModal(book);
+}
+
+// Show Book Modal
+function showBookModal(book) {
+    document.getElementById('modalTitle').textContent = book.title;
+    document.getElementById('modalAuthor').textContent = book.author;
+    document.getElementById('modalYear').textContent = book.year;
+    document.getElementById('modalId').textContent = book.id;
+    
+    document.getElementById('bookModal').style.display = 'block';
+}
+
+// Close Book Modal
+function closeBookModal() {
+    document.getElementById('bookModal').style.display = 'none';
 }
 
 // Render Cart
